@@ -70,4 +70,9 @@
     sign_trend & " " & _sign & FORMAT(month_diff_per,"#0.0%") & " " & "|" & " " & _sign & FORMAT(month_diff/1000,"#0.0K") & " vs LM","No PM Data")
 ## Final Report:
 
-![]()
+![](https://github.com/BhavanaBalasa/CoffeeShopSales_Power-BI/blob/main/CoffeeSalesReport.png)
+
+## Learnings:
+-  Different ways of using DAX to represent the data and provide insights to the customer.
+-  To represent the charts in a meaningful.
+-  In-depth properties under each chart to format them. 
