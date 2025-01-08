@@ -1,4 +1,6 @@
 # CoffeeShopSales_Power-BI
+## Description:
+   This project involved designing and implementing an advanced-level Power BI Sales Analysis Dashboard for a dataset with over 149,000 transactions from multiple coffee shop locations. Developed complex DAX measures for dynamic and insightful KPIs, Utilized a variety of charts to present data in a visually appealing and easy-to-understand format, implemented custom tooltips to provide additional context for visualizations,Created a Date Table with rich dimensions to analyze sales trends at various levels (daily, monthly, yearly).
 ## Bussiness Problem:
     Coffee shop businesses thrive on understanding customer behavior, product performance, and sales trends across locations. 
     With 149,116 detailed transaction records, this dataset provides an opportunity to gain insights into sales performance, 
@@ -28,7 +30,7 @@
 -   unit_price: Converted to float for calculations and analysis.
 ### Categorical Columns:
 -   store_id, store_location, product_id, product_category, product_type, and product_detail: Converted to categorical data type to optimize memory usage and improve processing efficiency.
-## Modelling:
+## Data Modeling:
 ### Date Table Creation and Relationship Setup in Power BI
     To enable efficient time-based analysis of the sales data, a Date Table was created in Power BI using DAX. 
     This table includes several useful columns to support detailed reporting and analysis.
@@ -45,5 +47,27 @@
 ### Created Relationships with the Transaction Table
 -   Established a one-to-many relationship between the Date column in the Date Table and the transaction_date column in the Transaction Table.
 -   Ensured the relationship is active and enabled cross-filtering for seamless analysis.
+
+![](https://github.com/BhavanaBalasa/CoffeeShopSales_Power-BI/blob/main/PowerBI%20Model.png)
+
+## Calculated Measures Creation in Power BI Used in Report:
+    To derive meaningful insights and support dynamic reporting, numerous calculated measures were created using DAX. These measures provide key performance indicators (KPIs) and used in different charts some of them are:
+-  Mom Growth & Diff Orders = 
+    VAR month_diff=[CM Orders]-[PM Orders]
+    VAR mom_per=month_diff/[PM Orders]
+    VAR _sign=IF(mom_per>0,"+","")
+    VAR sign_trend=IF(mom_per>0,"▲","▼")
+    RETURN
+    IF([PM Orders],
+    sign_trend & " " & _sign & FORMAT(mom_per,"#0.0%") & " | " & _sign & FORMAT(month_diff/1000,"0.0K") & " " & "vs LM","No PM Data")
+-  MoM Growth & Diff Qty = 
+    VAR month_diff=[CM Qty]-[PM Qty]
+    VAR month_diff_per=month_diff/[PM Qty]
+    VAR _sign=IF(month_diff>0,"+","")
+    VAR sign_trend=IF(month_diff>0,"▲","▼")
+    RETURN
+    IF([PM Qty],
+    sign_trend & " " & _sign & FORMAT(month_diff_per,"#0.0%") & " " & "|" & " " & _sign & FORMAT(month_diff/1000,"#0.0K") & " vs LM","No PM Data")
+## Final Report:
 
 ![]()
