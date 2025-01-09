@@ -74,5 +74,6 @@
 
 ## Learnings:
 -  Different ways of using DAX to represent the data and provide insights to the customer.
--  To represent the charts in a meaningful.
+-  To represent the charts in a meaningful context.
 -  In-depth properties under each chart to format them. 
+-  High level Representation of data through report.
